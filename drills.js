@@ -58,32 +58,99 @@ process.stdout.write('\x1Bc');
 
 //6
 // knex 
-  // .select()
-  // .from('restaurants')
-  // .where({cuisine: 'Thai', address_zipcode: 11372})
-  // .count()
-  // .then(res => console.log(res))
+// .select()
+// .from('restaurants')
+// .where({cuisine: 'Thai', address_zipcode: 11372})
+// .count()
+// .then(res => console.log(res))
 
 //7
-knex
-  .select('id', 'name')
-  .from('restaurants')
-  .where({cuisine: 'Italian', address_zipcode: (10012, 10013, 10014)})
-  .limit(5)
-  .then(res => console.log(res))
+// knex
+//   .select('id', 'name', 'address_zipcode')
+//   .from('restaurants')
+//   .where('cuisine', 'Italian')
+//   .whereIn('address_zipcode', [10012, 10013, 10014])
+//   .orderBy('name', 'asc')
+//   .limit(5)
+//   .then(res => console.log(res));
 
 //8
 
+// knex.insert({
+//   name: 'Byte Cafe',
+//   borough: 'Brooklyn',
+//   cuisine: 'coffee',
+//   address_building_number: '123',
+//   address_street: 'Atlantic Avenue',
+//   address_zipcode: '11231'
+// })
+//   .into('restaurants').then(results => console.log(JSON.stringify(results, null, 2)));
+
 //9
+// knex.insert({
+//   name: 'Byte Pizzeria',
+//   borough: 'Queens',
+//   cuisine: 'pizza',
+//   address_building_number: '171',
+//   address_street: 'Pacific Avenue',
+//   address_zipcode: '11014'
+// })
+//   .into('restaurants')
+//   .returning(['id', 'name'])
+//   .then(results => console.log(results));
 
 //10
+// knex.insert([
+//   {
+//     name: 'Byte Pizzeria',
+//     borough: 'Queens',
+//     cuisine: 'pizza',
+//     address_building_number: '171',
+//     address_street: 'Pacific Avenue',
+//     address_zipcode: '11014'
+//   },
+
+//   {
+//     name: 'Byte Pizzeria',
+//     borough: 'Queens',
+//     cuisine: 'pizza',
+//     address_building_number: '171',
+//     address_street: 'Pacific Avenue',
+//     address_zipcode: '11014'
+//   },
+
+//   {
+//     name: 'Byte Pizzeria',
+//     borough: 'Queens',
+//     cuisine: 'pizza',
+//     address_building_number: '171',
+//     address_street: 'Pacific Avenue',
+//     address_zipcode: '11014'
+//   }
+// ])
+//   .into('restaurants')
+//   .returning(['id', 'name'])
+//   .then(results => console.log(results));
 
 //11
+// knex('restaurants')
+//   .where('nyc_restaurant_id', 30191841)
+//   .update({
+//     name: 'DJ Reynolds Pub and Restaurant'
+//   })
+//   .then(res => console.log(res));
 
 //12
+// knex('grades')
+//   .where('id', 10)
+//   .del()
+//   .then(results => console.log('Deleted object'));
 
 //13
-
+// knex('restaurants')
+//   .where('id', 22)
+//   .del()
+//   .then(results => console.log(results));
 
 
 // Destroy the connection pool
